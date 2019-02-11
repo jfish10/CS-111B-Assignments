@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.utils.Arrays;
+import java.util.Arrays;
 
 public class twentyOneCardMagic {
     public static void main(String[] args) {
