@@ -8,6 +8,9 @@ public class twentyOneCardMagic {
         int[] deck1 = {1,2,3,4,5,6,7};
         int[] deck2 = {8,9,10,11,12,13,14};
         int[] deck3 = {15,16,17,18,19,20,21};
+        int[] newDeck1 =  {8,9,10,11,12,13,14,1,2,3,4,5,6,7,15,16,17,18,19,20,21};
+        int[] newDeck2 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+        int[] newDeck3 = {1,2,3,4,5,6,7,15,16,17,18,19,20,21,8,9,10,11,12,13,14};
 
 
         /* Declare a 7 by 3 array to receive the cards dealt to play the trick */
@@ -22,9 +25,8 @@ public class twentyOneCardMagic {
 
         int play = input.nextInt();
 
-        if (play == 0) {
 
-
+          if (play == 0) {
 
           System.out.println(Arrays.toString(deck1));
           System.out.println(Arrays.toString(deck2));
@@ -33,19 +35,58 @@ public class twentyOneCardMagic {
           System.out.println("Which pile does your card reside in? Enter [1], [2], or [3]:");
           int pile = input.nextInt();
 
-
-            //use 2 for loops to populate the cards
-            for (int row = 0; row < 7; row++) {
-                for (int col = 0; col < 3; col++) {
-                    array[row][col] = rn.nextInt(21-1) + 1;
-                    System.out.print(array[row][col]);
-                    System.out.print("  ");
-                }
-                 System.out.println(" ");
-            }
-            System.out.println("Choose a number from one of the columns 1, 2, or 3.");
-               int colOne = input.nextInt();
-
+          if (pile == 1) {
+            System.out.println(Arrays.toString(deck2));
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck3));
         }
+          else if (pile == 2) {
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck2));
+            System.out.println(Arrays.toString(deck3));
+          }
+          else if (pile == 3) {
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck3));
+            System.out.println(Arrays.toString(deck2));
+          }
+          System.out.println("Which pile does your card reside in? Enter [1], [2], or [3]:");
+          int pileTwo = input.nextInt();
+
+          if (pileTwo == 1) {
+            System.out.println(Arrays.toString(deck2));
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck3));
+        }
+          else if (pileTwo == 2) {
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck2));
+            System.out.println(Arrays.toString(deck3));
+          }
+          else if (pileTwo == 3) {
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck3));
+            System.out.println(Arrays.toString(deck2));
+          }
+          System.out.println("Which pile does your card reside in? Enter [1], [2], or [3]:");
+          int pileThree = input.nextInt();
+
+          if (pileThree == 1) {
+            System.out.println(Arrays.toString(deck2));
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck3));
+        }
+          else if (pileThree == 2) {
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck2));
+            System.out.println(Arrays.toString(deck3));
+          }
+          else if (pileThree == 3) {
+            System.out.println(Arrays.toString(deck1));
+            System.out.println(Arrays.toString(deck3));
+            System.out.println(Arrays.toString(deck2));
+        }
+          System.out.println("Ok, is your card: ");
+      }
     }
-}
+  }
