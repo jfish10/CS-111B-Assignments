@@ -33,7 +33,7 @@ class Driver {
 
         boolean quit = false;
         int option = 0;
-        while(true) {
+        while(!quit) {
             System.out.println("Enter your choice: ");
             Scanner scan = new Scanner(System.in);
             option = scan.nextInt();
