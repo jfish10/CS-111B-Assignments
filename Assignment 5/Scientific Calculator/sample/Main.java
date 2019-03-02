@@ -19,10 +19,11 @@ public class Main extends Application {
     Button btnMultiply;
     Button btnDivide;
     Button btnPower;
-    Button btnSquareRoot;
-    Button btnAbsValue;
-    Button btnFloorValue;
-    Button btnCeilValue;
+    Button btnSumSquareRoot;
+    Button btnSumAbsValue;
+    Button btnSumFloorValue;
+    Button btnSumCeilValue;
+    Button btnFactorial;
     Button btnClear;
     Label lb1Answer;
 
@@ -37,8 +38,11 @@ public class Main extends Application {
             btnMultiply = new Button("*");
             btnDivide = new Button("/");
             btnPower = new Button("^");
-            btnSquareRoot = new Button("#");
-            btnAbsValue = new Button("|");
+            btnSumSquareRoot = new Button("#");
+            btnSumAbsValue = new Button("|");
+            btnSumFloorValue = new Button("_");
+            btnSumCeilValue = new Button("-");
+            btnFactorial = new Button("!");
             btnClear = new Button("Clear");
             lb1Answer = new Label("?");
 
@@ -53,7 +57,11 @@ public class Main extends Application {
             root.add(btnAddition, 0, 1);
             root.add(btnSubtraction, 1, 1);
             root.add(btnPower, 2,0);
-            root.add(btnSquareRoot,3,0);
+            root.add(btnSumSquareRoot,3,0);
+            root.add(btnSumAbsValue,2,1);
+            root.add(btnSumCeilValue,3,1);
+            root.add(btnSumFloorValue,3,2);
+            root.add(btnFactorial,3,3);
             root.add(btnClear, 0, 4, 2, 1);
 
             root.add(tfNum1, 0, 2);
@@ -75,9 +83,15 @@ public class Main extends Application {
         tfNum1.setPrefWidth(70);
         tfNum2.setPrefWidth(70);
         btnDivide.setPrefWidth(70);
+        btnSumAbsValue.setPrefWidth((70));
+        btnSumSquareRoot.setPrefWidth(70);
         btnMultiply.setPrefWidth(70);
         btnAddition.setPrefWidth(70);
         btnSubtraction.setPrefWidth(70);
+        btnPower.setPrefWidth(70);
+        btnSumCeilValue.setPrefWidth(30);
+        btnSumFloorValue.setPrefWidth(30);
+        btnFactorial.setPrefWidth(50);
         btnClear.setPrefWidth(150);
         lb1Answer.setPrefWidth(150);
         lb1Answer.setAlignment(Pos.CENTER);
@@ -89,16 +103,23 @@ public class Main extends Application {
         btnAddition.setOnAction(e -> btncode(e));
         btnSubtraction.setOnAction(e -> btncode(e));
         btnMultiply.setOnAction(e -> btncode(e));
+        btnSumSquareRoot.setOnAction(e -> btncode(e));
         btnDivide.setOnAction(e -> btncode(e));
+        btnPower.setOnAction(e -> btncode(e) );
+        btnSumCeilValue.setOnAction(e -> btncode(e));
+        btnSumFloorValue.setOnAction(e -> btncode(e));
+        btnSumAbsValue.setOnAction(e -> btncode(e));
+        btnFactorial.setOnAction(e -> btncode(e));
         btnClear.setOnAction(e -> btncode(e));
     }
 
+
     public void btncode(ActionEvent e) {
-        int num1, num2, answer = 0;
+        double num1, num2, answer = 0;
         char symbol = ' ';
         //read the numbers from the text box
-        num1 = Integer.parseInt(tfNum1.getText());
-        num2 = Integer.parseInt(tfNum2.getText());
+        num1 = Double.parseDouble(tfNum1.getText());
+        num2 = Double.parseDouble(tfNum2.getText());
         if(e.getSource() == btnAddition) {
             symbol = '+';
             answer = num1 + num2;
@@ -116,11 +137,50 @@ public class Main extends Application {
             answer = num1/num2;
 
         }
-        else if(e.getSource() == btnSquareRoot) {
-            symbol = '#';
-            answer = num1*num1;
+        else if(e.getSource() == btnPower) {
+            symbol = '^';
+            answer = (int)Math.pow(num1,num2);
         }
-
+        else if(e.getSource() == btnSumSquareRoot) {
+            symbol = '#';
+            answer = (num1+num2)*(num1+num2);
+        }
+        else if(e.getSource() == btnSumAbsValue) {
+            symbol = '|';
+            if (num1 < 0 || num2 < 0) {
+                double temp = num1 + num2;
+                if(temp<=0) {
+                    answer = temp * -1;
+                }
+                else answer = num1 + num2;
+            }
+            else if (num2 < 0 & num1 < 0) {
+                double temp = num1 + num2;
+                if (temp <= 0) {
+                    answer = temp*-1;
+                }
+                else answer = num1+num2;
+            }
+            else answer = num1 + num2;
+        }
+        else if(e.getSource() == btnSumFloorValue) {
+            symbol = '_';
+            answer = Math.floor(num1+num2);
+        }
+        else if(e.getSource() == btnSumCeilValue) {
+            symbol = '-';
+            answer = Math.ceil(num1+num2);
+        }
+        else if(e.getSource() == btnFactorial) {
+            if(num1 ==0) {
+                answer = 1.0;
+            }
+            else {
+                for(int i=2; i <=num1; i++) {
+                    answer *= i;
+                }
+            }
+        }
         else {
             tfNum1.setText("");
             tfNum2.setText("");
