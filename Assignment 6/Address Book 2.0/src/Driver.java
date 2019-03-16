@@ -42,7 +42,7 @@ class Driver {
                     break;
 
                 case 4:
-                    ab.printAddressBook();
+                    ab.printAllContacts();
                     break;
                 case 5:
                      
