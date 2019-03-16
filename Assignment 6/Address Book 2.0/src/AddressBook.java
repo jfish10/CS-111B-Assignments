@@ -23,6 +23,21 @@ class AddressBook {
     	 p.phoneNumber = scan.nextLine();
          myContacts.add(p);
     }
+	
+	    public void addPersonFromFile() throws IOException {
+    	Person p = new Person();
+		//Writing to file
+		File file = new File("contacts.txt");
+		System.out.println(file.exists()); //Checks if the file already there
+		file.createNewFile();
+		FileWriter fw = new FileWriter(file); //Ready to write into file
+		PrintWriter pw = new PrintWriter(fw); //sets up to write inside the file
+		pw.write(p.firstName = "Jonny");
+		pw.write(p.lastName = "Fisher");
+		pw.write(p.phoneNumber = "5109149277");
+		pw.close();
+		myContacts.add(p);
+    }
     
     public void removePerson(String phn) {
     	Person p = new Person();
