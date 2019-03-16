@@ -32,7 +32,7 @@ class Driver {
             switch (choice) {
                 case 1:
                 	 
-                    ab.addPerson();
+                    ab.addPersonFromFile();
                     break;
                 case 2:
                      
