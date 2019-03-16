@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.io.IOException;
+import java.util.Scanner;
 
 class Driver {
 	
@@ -19,6 +19,7 @@ class Driver {
         System.out.println("3. Delete a contact ");
         System.out.println("4. List all added contacts in sorted order");
         System.out.println("5. Search for a given contact");
+        System.out.println("6. Add contact from external file");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
 	}
@@ -32,21 +33,24 @@ class Driver {
             switch (choice) {
                 case 1:
                 	 
-                    ab.addPersonFromFile();
+                    ab.addPerson();
                     break;
                 case 2:
-                     
+                    
                     break;
                 case 3:
                     
                     break;
 
                 case 4:
-                    ab.printAllContacts();
+                	ab.printAllContacts();
                     break;
                 case 5:
-                     
+                   Person person = new Person();
                     break;
+                case 6:
+                	ab.addPersonFromFile();
+                	break;
             }
 
         } while (getContinue());
