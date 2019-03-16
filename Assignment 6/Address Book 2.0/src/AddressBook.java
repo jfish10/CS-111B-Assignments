@@ -54,10 +54,12 @@ class AddressBook {
     	// you can use Collections.sort()
     }
     
-    public void printAddressBook() {
-    	
-    	for(int j=0;j<myContacts.size();j++)
-            System.out.println(myContacts.get(j));
+       public void printAllContacts() {
+        for (int i = 0; i < myContacts.size(); i++) {
+            System.out.println("Contact name is: " + myContacts.get(i).firstName + " " + myContacts.get(i).lastName);
+            System.out.println("Phone Number is: " + myContacts.get(i).phoneNumber);
+            System.out.println("");
+        }
     }
 	
 }
