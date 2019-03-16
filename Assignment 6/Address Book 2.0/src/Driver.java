@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.IOException;
 
 class Driver {
 	
@@ -23,7 +24,7 @@ class Driver {
 	}
 	
 	 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 	
 		AddressBook ab = new AddressBook();
 		do {
