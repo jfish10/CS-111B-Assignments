@@ -36,8 +36,15 @@ class AddressBook {
 		pw.write(p.firstName = "Jonny");
 		pw.write(p.lastName = "Fisher");
 		pw.write(p.phoneNumber = "5109149277");
-		pw.close();
-		myContacts.add(p);
+			pw.close();
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String line="";
+		while((line = br.readLine()) != null) {
+			myContacts.add(p);
+		}
+		br.close();
+		
     }
     
     public void removePerson(String phn) {
